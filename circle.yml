@@ -2,3 +2,6 @@ dependencies:
   pre:
     - echo y | android update sdk --no-ui --all --filter "build-tools-24.0.3"
     - echo y | android update sdk --no-ui --all --filter "android-24"
+test:
+  post:
+    - cp -r ./app/build/test-results/{debug,release} $CIRCLE_TEST_REPORTS
