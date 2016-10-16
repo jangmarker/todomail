@@ -1,0 +1,10 @@
+dependencies:
+  pre:
+    - echo y | android update sdk --no-ui --all --filter "build-tools-24.0.3"
+    - echo y | android update sdk --no-ui --all --filter "android-24"
+test:
+  override:
+      - ./gradlew jacocoTestReport
+  post:
+    - cp -r ./app/build/test-results/debug $CIRCLE_TEST_REPORTS
+    - bash <(curl -s https://codecov.io/bash)
