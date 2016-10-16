@@ -31,4 +31,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
     testCompile "org.robolectric:robolectric:3.1.2"
+    testCompile 'com.android.support.test.espresso:espresso-intents:2.2.2'
+
+    // https://github.com/robolectric/robolectric/issues/1932#issuecomment-219796474
+    testCompile 'org.khronos:opengl-api:gl1.1-android-2.1_r1'
 }
