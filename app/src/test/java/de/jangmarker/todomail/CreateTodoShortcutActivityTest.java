@@ -51,7 +51,7 @@ public class CreateTodoShortcutActivityTest {
         Object intent = shadow.getResultIntent().getExtras().get(Intent.EXTRA_SHORTCUT_INTENT);
         assertThat((Intent) intent, allOf(
                 hasAction(Intent.ACTION_SENDTO),
-                hasData(Uri.parse("mailto:todo@jangmarker.de"))
+                hasData(Uri.parse("mailto:Create Todo <todo@jangmarker.de>"))
         ));
     }
 
