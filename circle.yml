@@ -4,7 +4,7 @@ dependencies:
     - echo y | android update sdk --no-ui --all --filter "android-24"
 test:
   override:
-      - ./gradlew testDebugUnitTestCoverage
+      - ./gradlew jacocoTestDebugUnitTestReport
   post:
     - cp -r ./app/build/test-results/debug $CIRCLE_TEST_REPORTS
     - bash <(curl -s https://codecov.io/bash)
