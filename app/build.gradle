@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'jacoco-android'
+apply from: 'jacoco.gradle'
 
 android {
     compileSdkVersion 24
@@ -36,3 +36,4 @@ dependencies {
     // https://github.com/robolectric/robolectric/issues/1932#issuecomment-219796474
     testCompile 'org.khronos:opengl-api:gl1.1-android-2.1_r1'
 }
+//
