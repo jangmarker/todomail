@@ -14,7 +14,7 @@ public class CreateTodoShortcutActivity extends Activity {
 
         final Intent createShortcutIntent = new Intent();
 
-        final Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + "todo@jangmarker.de"));
+        final Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + "Create Todo <todo@jangmarker.de>"));
         final ShortcutIconResource iconResource = ShortcutIconResource.fromContext(this, R.mipmap.ic_launcher);
 
         createShortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, emailIntent);
