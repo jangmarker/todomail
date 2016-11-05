@@ -17,6 +17,7 @@ import static android.support.test.espresso.intent.matcher.IntentMatchers.hasAct
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasData;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasExtra;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasExtraWithKey;
+import static de.jangmarker.todomail.MailTodoIntentMatcher.mailTodoIntent;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
@@ -49,10 +50,7 @@ public class CreateTodoShortcutActivityTest {
     @Test
     public void launcher_createsPrefilledSendMailForm() {
         Object intent = shadow.getResultIntent().getExtras().get(Intent.EXTRA_SHORTCUT_INTENT);
-        assertThat((Intent) intent, allOf(
-                hasAction(Intent.ACTION_SENDTO),
-                hasData(Uri.parse("mailto:Create Todo <todo@jangmarker.de>"))
-        ));
+        assertThat((Intent) intent, mailTodoIntent());
     }
 
 }

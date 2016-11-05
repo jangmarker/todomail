@@ -1,7 +1,6 @@
 package de.jangmarker.todomail;
 
 import android.content.Intent;
-import android.net.Uri;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,11 +10,8 @@ import org.robolectric.Shadows;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
 
-import static android.support.test.espresso.intent.matcher.IntentMatchers.hasAction;
-import static android.support.test.espresso.intent.matcher.IntentMatchers.hasData;
-import static android.support.test.espresso.intent.matcher.IntentMatchers.hasExtra;
+import static de.jangmarker.todomail.MailTodoIntentMatcher.mailTodoIntentWithSubject;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.allOf;
 
 
 @RunWith(RobolectricTestRunner.class)
@@ -37,11 +33,7 @@ public class CreateTodoFromShareTest {
                         .create().start().visible().get();
         ShadowActivity shadow = Shadows.shadowOf(activity);
 
-        assertThat(shadow.peekNextStartedActivity(), allOf(
-                hasAction(Intent.ACTION_SENDTO),
-                hasData(Uri.parse("mailto:Create Todo <todo@jangmarker.de>")),
-                hasExtra(Intent.EXTRA_SUBJECT, subject))
-        );
+        assertThat(shadow.peekNextStartedActivity(), mailTodoIntentWithSubject(subject));
     }
 
 }

@@ -2,7 +2,6 @@ package de.jangmarker.todomail;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 public class CreateTodoFromShare extends Activity {
@@ -20,10 +19,9 @@ public class CreateTodoFromShare extends Activity {
             return;
         }
 
-        final Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + "Create Todo <todo@jangmarker.de>"));
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, intent.getStringExtra(Intent.EXTRA_TEXT));
+        final String subject = intent.getStringExtra(Intent.EXTRA_TEXT);
 
-        startActivity(emailIntent);
+        startActivity(new MailTodoIntent(subject));
         finish();
     }
 
