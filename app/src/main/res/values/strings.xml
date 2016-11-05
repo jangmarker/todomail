@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TodoMail</string>
+    <string name="createTodo">Create Todo</string>
 </resources>
